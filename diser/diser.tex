@@ -25,20 +25,20 @@
 % maybe unused
 \usepackage{longtable}
 
-\usepackage{zvit}
+\usepackage{diser/Styles/zvit}
 
 % for literature
 \usepackage{datetime}
 \renewcommand{\dateseparator}{.}
 \newcommand{\todayiso}{10.11.2018}
 
-\usepackage{bibspacing-report}
+\usepackage{diser/Styles/bibspacing-report}
 \setlength{\bibspacing}{\baselineskip}
 
 
 % --- Zvit Settings -----
 
-\NirOrgLongName{Національна академія наук України
+\NirOrgLongName{Національна академія медичних наук України
 
 Повна назва організації
 
@@ -83,35 +83,33 @@
   \linespread{1.1}
   \vspace{2em}
 
-{Національна академія наук України
+{Національна академія медичних наук України
 
-Назва інституту}
+Національний інститут хірургії та транспланталогії}
 
   \vspace{5em}
 
-ПРІЗВИЩЕ Ім'я По-батькові
+ФЕДОРОВ Денис Олександрович
 
   \vspace{2em}
 
-Розвиток архітектури та методів автоматичної компіляції дисертацій
-
-у середовищі Latex
+Лапароскопічні резекції в лікуванні вогнищевої патології печінки
 
   \vspace{5em}
 
 
 Дисертація 
 
-на здобуття наукового ступеня кандидата технічних наук
+на здобуття наукового ступеня доктора медичних наук
 
-за спеціальністю 05.13.05 -- комп'ютерні системи та компоненти
+за спеціальністю 14.01.03 -- хірургія
 
 
   \vspace{2em}
 
 \textit{Науковий керівник}
 
-доктор фізико-математичних наук
+доктор медичних наук
 
 професор
 
@@ -119,7 +117,7 @@
 
 \vspace{11em}
 
-  Київ -- 2018
+  Київ -- 2022
 
  \end{centering}
 \begin{flushright}
@@ -129,17 +127,17 @@
 
 \tableofcontents
 
-\input{abreviations.tex}
+\input{diser/Chapters/abreviations}
 
-\input{chapter-introduction.tex}
+\input{diser/Chapters/chapter-introduction.tex}
 
 \mainmatter %% это включает нумерацию глав и секций в документе ниже
 
-\input{chapter-theory-overview.tex}
+\input{diser/Chapters/chapter-theory-overview.tex}
 
 \backmatter
 
-\input{chapter-conclusion.tex}
+\input{diser/Chapters/chapter-conclusion.tex}
 
 
 \mainmatter
@@ -149,7 +147,7 @@
 \bibliographystyle{gost780}
 % \bibliographystyle{unsrt}
 % \bibliographystyle{plain}
-\bibliography{literatura}
+\bibliography{/diser/Bibliography/literatura}
 
 \appendix
 
@@ -163,7 +161,7 @@
   {ДОДАТОК~\Asbuk{chapter}~}{0pt}{}
 \titlespacing{\chapter}{0cm}{0em}{3em}
 
-\input{appendix-module-for-statistics-gather.tex}
-\input{appendix-acts-of-intruduction.tex}
+\input{diser/Chapters/appendix-module-for-statistics-gather.tex}
+\input{diser/Chapters/appendix-acts-of-intruduction.tex}
 
 \end{document}

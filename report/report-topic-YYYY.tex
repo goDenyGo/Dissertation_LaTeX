@@ -23,7 +23,7 @@
 \usepackage{array}
 \usepackage{longtable}
 
-\usepackage{zvit}
+\usepackage{report/Styles/zvit}
 
 % for literature
 \usepackage{datetime}
@@ -140,23 +140,22 @@
 % End of Titlepage
 
 
-\input{authors.tex}
-
-\input{referat.tex}
+\input{report/Chapters/authors}
+\input{report/Chapters/referat.tex}
 
 \tableofcontents
 
-\input{abreviations.tex}
-\input{introduction.tex}
+\input{report/Chapters/abreviations.tex}
+\input{report/Chapters/introduction.tex}
 
 \mainmatter %% вмикаємо нумераці.
 
-\input{chapter-example1.tex}
-\input{chapter-example2.tex}
+\input{report/Chapters/chapter-example1.tex}
+\input{report/Chapters/chapter-example2.tex}
 
 \backmatter
 
-\input{conclusion.tex}
+\input{report/Chapters/conclusion.tex}
 
 \clearpage
 \addcontentsline{toc}{chapter}{ПЕРЕЛІК ДЖЕРЕЛ ПОСИЛАННЯ}
