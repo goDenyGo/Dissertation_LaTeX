@@ -1,23 +1,25 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%    Головний файл дисертаційної роботи  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \documentclass[a4paper,14pt]{extreport}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%    Налаштування основного документа    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[ukrainian]{babel}
+\usepackage[acronym, toc]{glossaries}
+%\usepackage[unicode]{hyperref}
 
-\usepackage[unicode]{hyperref}
+\usepackage[hidelinks]{hyperref}
 \hypersetup{colorlinks=false}
+\hypersetup{unicode=true} % Прибирає hyperref Warning
 
 \usepackage{lastpage}
 \usepackage{graphicx}
-\usepackage{url}
-\usepackage{listings}
-\lstset{frame=single,basicstyle=\ttfamily\scriptsize,extendedchars=\true}
 
-\usepackage{amssymb}
-
-\newtheorem{lemma}{Лема}
-\newtheorem{theorem}{Теорема}
-\newtheorem{proposition}{Твердження}
 
 \usepackage{multirow}
 \usepackage{array}
@@ -36,132 +38,148 @@
 \setlength{\bibspacing}{\baselineskip}
 
 
-% --- Zvit Settings -----
-
-\NirOrgLongName{Національна академія медичних наук України
-
-Повна назва організації
-
-12345, Офіційна адреса
-
-тел. (044) 123-45-67} %% 
-
-\NirBoss{Директор Інституту Назва \newline
- НАН України \newline
-академік НАН України}{ПІБ директора} 
-\NirManager{доктор фізико-математичних наук, професор}{ПІБ Керівника} 
 
 
-\NirYear{2018}
-\NirTown{м. Київ,} 
- 
-\NirDate{~~~ 2018 р.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%       Налаштування заголовків розділів в тексті    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\titleformat % вставляє "РОЗДІЛ" перед номером та назвою розділів в тексті
+{\chapter} 
+[block] % shape
+{} % format
+{\MakeUppercase\chaptertitlename\nobreakspace\thechapter\hspace{1cm}} % label
+{0pt} % sep
+{} % before-code
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\NirUdk{519.713}
-\NirGosNo{№ держреєстрації 0000U000001}
-
-\NirStage{не використовується}{заключний}{}
 
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%       Налаштування заголовків розділів в TOC    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{tocloft}
+
+%\renewcommand{\cftchapfont}{\bfseries}
+%\renewcommand{\cftchappagefont}{\bfseries}
+%\renewcommand{\cftchapaftersnum}{:}
+\renewcommand{\cftchapnumwidth}{7em}
+\makeatletter
+\newcommand*\updatechaptername{%
+	\addtocontents{toc}{\protect\renewcommand*\protect\cftchappresnum{\MakeUppercase\@chapapp\ }}
+}
+\makeatother 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\input{glossaries}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%       Тіло основного документа    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
 
 \usefont{T2A}{ftm}{m}{n} 
 
-% Add C. to start of contents
-\cftaddtitleline{toc}{part}{}{С.}
 
 \frontmatter 
+\input{diser/Chapters/Title_page}
 
-% Title page
-\thispagestyle{empty}
+%%%%%%%%%%%%%%%%%%%%%%%%
+%       TOC            %
+%%%%%%%%%%%%%%%%%%%%%%%%
 
-УДК \quad 000.000.00
-
- \begin{centering}
-  \linespread{1.1}
-  \vspace{2em}
-
-{Національна академія медичних наук України
-
-Національний інститут хірургії та транспланталогії}
-
-  \vspace{5em}
-
-ФЕДОРОВ Денис Олександрович
-
-  \vspace{2em}
-
-Лапароскопічні резекції в лікуванні вогнищевої патології печінки
-
-  \vspace{5em}
-
-
-Дисертація 
-
-на здобуття наукового ступеня доктора медичних наук
-
-за спеціальністю 14.01.03 -- хірургія
-
-
-  \vspace{2em}
-
-\textit{Науковий керівник}
-
-доктор медичних наук
-
-професор
-
-ПІБ Керівника
-
-\vspace{11em}
-
-  Київ -- 2022
-
- \end{centering}
-\begin{flushright}
- На правах рукопису
-\end{flushright} 
-% End of Titlepage
-
+% Add C. to start of contents
+\cftaddtitleline{toc}{part}{}{С.}
 \tableofcontents
+\updatechaptername
 
-\input{diser/Chapters/abreviations}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\input{diser/Chapters/chapter-introduction.tex}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%       ВСТУП               %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\input{diser/Chapters/abreviations}
+\input{diser/Chapters/introduction.tex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%       Нумеровані розділи    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \mainmatter %% это включает нумерацию глав и секций в документе ниже
 
-\input{diser/Chapters/chapter-theory-overview.tex}
+\clearpage
+\printglossary[type=\acronymtype,
+               title=Перелік умовних позначеннь]
+
+\input{diser/Chapters/Chapter_01}
+\input{diser/Chapters/Chapter_02}
+\input{diser/Chapters/Chapter_03}
+\input{diser/Chapters/Chapter_04}
+\input{diser/Chapters/Chapter_05}
+\input{diser/Chapters/Chapter_06}
+\input{diser/Chapters/Chapter_07}
 
 \backmatter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\input{diser/Chapters/chapter-conclusion.tex}
 
+
+\input{diser/Chapters/conclusion.tex}
 
 \mainmatter
 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%       Бібліографія    %
+%%%%%%%%%%%%%%%%%%%%%%%%%
 \clearpage
 \addcontentsline{toc}{chapter}{ПЕРЕЛІК ПОСИЛАНЬ}
 \bibliographystyle{gost780}
 % \bibliographystyle{unsrt}
 % \bibliographystyle{plain}
-\bibliography{/diser/Bibliography/literatura}
+\bibliography{diser/Bibliography/literature}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%       Додатки         %
+%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \appendix
+\updatechaptername
 
-%Fix Cyrillic letters in appendix numbering
-\makeatletter
-% Fix Title format
-\gdef\thechapter{\@Asbuk\c@chapter}
-\makeatother
-\titleformat{\chapter}
-  {\normalfont \centering}
-  {ДОДАТОК~\Asbuk{chapter}~}{0pt}{}
-\titlespacing{\chapter}{0cm}{0em}{3em}
-
-\input{diser/Chapters/appendix-module-for-statistics-gather.tex}
+\input{diser/Chapters/appendix-list-of-publications}
 \input{diser/Chapters/appendix-acts-of-intruduction.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
 
 \end{document}
