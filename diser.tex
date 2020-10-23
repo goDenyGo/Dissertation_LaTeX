@@ -10,10 +10,10 @@
 \usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[ukrainian]{babel}
-\usepackage[acronym, toc]{glossaries}
-%\usepackage[unicode]{hyperref}
 
-\usepackage[hidelinks]{hyperref}
+\usepackage[unicode, hidelinks]{hyperref}
+
+
 \hypersetup{colorlinks=false}
 \hypersetup{unicode=true} % Прибирає hyperref Warning
 
@@ -27,14 +27,14 @@
 % maybe unused
 \usepackage{longtable}
 
-\usepackage{diser/Styles/zvit}
+\usepackage{Styles/zvit}
 
 % for literature
 \usepackage{datetime}
 \renewcommand{\dateseparator}{.}
 \newcommand{\todayiso}{10.11.2018}
 
-\usepackage{diser/Styles/bibspacing-report}
+\usepackage{Styles/bibspacing-report}
 \setlength{\bibspacing}{\baselineskip}
 
 
@@ -76,7 +76,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-
+\usepackage[acronym, toc]{glossaries}
 \input{glossaries}
 
 
@@ -87,11 +87,26 @@
 
 \begin{document}
 
-\usefont{T2A}{ftm}{m}{n} 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%       Шрифти з кирилицею          %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usefont{T2A}{fcm}{m}{n} % ++++
+%\usefont{T2A}{cmr}{m}{n} % ++++
+%\usefont{T2A}{ftm}{m}{n} % -----
+%\usefont{T2A}{PTSerif-TLF}{m}{n} % --
+%\usefont{T2A}{PTSans-TLF}{m}{n} % +-
+%\usefont{T2A}{cmss}{m}{n} % ---
+%\usefont{T2A}{antt}{m}{n} % +-
+%\usefont{T2A}{Tempora-TLF}{m}{n}
+
 
 
 \frontmatter 
-\input{diser/Chapters/Title_page}
+\input{Chapters/Title_page}
 
 %%%%%%%%%%%%%%%%%%%%%%%%
 %       TOC            %
@@ -109,17 +124,26 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%       УМОВНІ ПОЗНАЧЕННЯ   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\printglossary[type=\acronymtype,
+               title=\MakeUppercase{Перелік умовних скороченнь}]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+          
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %       ВСТУП               %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\input{diser/Chapters/abreviations}
-\input{diser/Chapters/introduction.tex}
+%\input{Chapters/abreviations}
+\input{Chapters/introduction.tex}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %       Нумеровані розділи    %
@@ -127,17 +151,15 @@
 
 \mainmatter %% это включает нумерацию глав и секций в документе ниже
 
-\clearpage
-\printglossary[type=\acronymtype,
-               title=Перелік умовних позначеннь]
 
-\input{diser/Chapters/Chapter_01}
-\input{diser/Chapters/Chapter_02}
-\input{diser/Chapters/Chapter_03}
-\input{diser/Chapters/Chapter_04}
-\input{diser/Chapters/Chapter_05}
-\input{diser/Chapters/Chapter_06}
-\input{diser/Chapters/Chapter_07}
+
+\input{Chapters/Chapter_01}
+\input{Chapters/Chapter_02}
+\input{Chapters/Chapter_03}
+\input{Chapters/Chapter_04}
+\input{Chapters/Chapter_05}
+\input{Chapters/Chapter_06}
+\input{Chapters/Chapter_07}
 
 \backmatter
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -145,7 +167,7 @@
 
 
 
-\input{diser/Chapters/conclusion.tex}
+\input{Chapters/conclusion.tex}
 
 \mainmatter
 
@@ -159,7 +181,7 @@
 \bibliographystyle{gost780}
 % \bibliographystyle{unsrt}
 % \bibliographystyle{plain}
-\bibliography{diser/Bibliography/literature}
+\bibliography{Bibliography/literature}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -173,12 +195,11 @@
 \appendix
 \updatechaptername
 
-\input{diser/Chapters/appendix-list-of-publications}
-\input{diser/Chapters/appendix-acts-of-intruduction.tex}
+\input{Chapters/appendix-list-of-publications}
+\input{Chapters/appendix-acts-of-intruduction.tex}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
 
 
