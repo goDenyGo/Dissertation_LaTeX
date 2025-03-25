@@ -22,7 +22,6 @@
 \usepackage{xcolor}
 
 
-
 \usepackage{multirow}
 \usepackage{array}
 
@@ -53,20 +52,20 @@
 %%%%%%%%%%%%%%%%%%%%%%
 
 
-%\usepackage{totcount}
+\usepackage{totcount}
 
-%\newtotcounter{citenum}
-%\def\oldcite{}
-%\let\oldcite=\bibcite
-%\def\bibcite{\stepcounter{citenum}\oldcite}
+\newtotcounter{citenum}
+\def\oldcite{}
+\let\oldcite=\bibcite
+\def\bibcite{\stepcounter{citenum}\oldcite}
 
-%\newcounter{totfigures}
-%\newcounter{tottables}
-%\newcounter{totchapters}
+\newcounter{totfigures}
+\newcounter{tottables}
+\newcounter{totchapters}
 
-%\providecommand\totfig{} 
-%\providecommand\tottab{}
-%\providecommand\totchap{}
+\providecommand\totfig{} 
+\providecommand\tottab{}
+\providecommand\totchap{}
 
 %\makeatletter
 %\AtEndDocument{%
@@ -136,7 +135,7 @@
   {\large\bfseries\centering} % Великий жирний заголовок по центру
   {} % Без номера
   {0.5em} % Відступ
- % {\color{blue}} % Колір
+  {} % Колір
 
 % \titleformat{\subsection}
 %   {\large\bfseries} % Трохи менший жирний текст
@@ -258,8 +257,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \clearpage
 \addcontentsline{toc}{chapter}{ПЕРЕЛІК ПОСИЛАНЬ}
-\bibliographystyle{gost780}
-% \bibliographystyle{unsrt}
+%\bibliographystyle{gost780}
+\bibliographystyle{unsrt}
 % \bibliographystyle{plain}
 \bibliography{Bibliography/literature}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
