@@ -19,6 +19,8 @@
 
 \usepackage{lastpage}
 \usepackage{graphicx}
+\usepackage{xcolor}
+
 
 
 \usepackage{multirow}
@@ -37,6 +39,53 @@
 \usepackage{Styles/bibspacing-report}
 \setlength{\bibspacing}{\baselineskip}
 
+\usepackage{lastpage}
+
+
+
+%%%%% Міжрядковий інтервал %%%%%%%%%
+\renewcommand{\baselinestretch}{1.5}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+%       Лічильники   %
+%%%%%%%%%%%%%%%%%%%%%%
+
+
+%\usepackage{totcount}
+
+%\newtotcounter{citenum}
+%\def\oldcite{}
+%\let\oldcite=\bibcite
+%\def\bibcite{\stepcounter{citenum}\oldcite}
+
+%\newcounter{totfigures}
+%\newcounter{tottables}
+%\newcounter{totchapters}
+
+%\providecommand\totfig{} 
+%\providecommand\tottab{}
+%\providecommand\totchap{}
+
+%\makeatletter
+%\AtEndDocument{%
+%  \addtocounter{totfigures}{\value{figure}}%
+%  \addtocounter{tottables}{\value{table}}%
+%  \addtocounter{totchapters}{\value{chapter}}%
+%  \immediate\write\@mainaux{%
+%    \string\gdef\string\totfig{\number\value{totfigures}}%
+%    \string\gdef\string\tottab{\number\value{tottables}}%
+%    \string\gdef\string\totchap{\number\value{totchapters}}%
+%  }%
+%}
+%\makeatother
+
+%\pretocmd{\chapter}{\addtocounter{totfigures}{\value{figure}}\setcounter{figure}{0}}{}{}
+%\pretocmd{\chapter}{\addtocounter{tottables}{\value{table}}\setcounter{table}{0}}{}{}
+%\pretocmd{\chapter}{\addtocounter{totchapters}{\value{chapter}}\setcounter{chapter}{0}}{}{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
@@ -72,6 +121,42 @@
 	\addtocontents{toc}{\protect\renewcommand*\protect\cftchappresnum{\MakeUppercase\@chapapp\ }}
 }
 \makeatother 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%       Налаштування вигляду заголовків секцій    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{titlesec}
+
+\titleformat{\section}
+  {\large\bfseries\centering} % Великий жирний заголовок по центру
+  {} % Без номера
+  {0.5em} % Відступ
+ % {\color{blue}} % Колір
+
+% \titleformat{\subsection}
+%   {\large\bfseries} % Трохи менший жирний текст
+%   {\thesubsection} % Нумерація
+%   {0.5em}
+%   {\color{red}} % Червоний колір
+
+% \titleformat{\subsubsection}
+%   {\normalsize\itshape} % Курсивний стиль
+%   {\thesubsubsection}
+%   {0.5em}
+%   {\color{purple}} % Фіолетовий
+
+%\titlespacing*{\section} {0pt}{10pt}{5pt}
+%\titlespacing*{\subsection} {0pt}{8pt}{4pt}
+%\titlespacing*{\subsubsection} {0pt}{6pt}{3pt}
+
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -133,14 +218,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
           
 
-
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %       ВСТУП               %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\input{Chapters/abreviations}
+\input{Chapters/abreviations}
 \input{Chapters/introduction.tex}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -150,8 +232,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \mainmatter %% это включает нумерацию глав и секций в документе ниже
-
-
 
 \input{Chapters/Chapter_01}
 \input{Chapters/Chapter_02}
@@ -192,11 +272,11 @@
 %       Додатки         %
 %%%%%%%%%%%%%%%%%%%%%%%%%
 
-\appendix
-\updatechaptername
+%\appendix
+%\updatechaptername
 
-\input{Chapters/appendix-list-of-publications}
-\input{Chapters/appendix-acts-of-intruduction.tex}
+%\input{Chapters/appendix-list-of-publications}
+%\input{Chapters/appendix-acts-of-intruduction.tex}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
